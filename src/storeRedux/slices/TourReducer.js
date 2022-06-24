@@ -32,6 +32,21 @@ const TourSlice = createSlice({
             const FState = { ...initialState.state, finalTraject: true }
             state.state = FState
         },
+        addNewPerson: (state, action) => {
+
+            state.state.Persons = [
+                ...state.state.Persons,
+                action.payload
+            ]
+        },
+        dellPerson: (state, actions) => {
+            const newStateFilter = state.state.Persons.filter(item => {
+                console.log(actions)
+                return item !== actions.payload
+            })
+            state.state.Persons = newStateFilter
+
+        }
     }
 })
 
@@ -40,5 +55,7 @@ export const {
     toggleInitial,
     toggleSelectTour,
     toggleSelectPersons,
-    toggleFinalTraject
+    toggleFinalTraject,
+    addNewPerson,
+    dellPerson
 } = TourSlice.actions
