@@ -9,6 +9,7 @@ export const CardContainer = styled.div`
     align-items: center;
 
     background: url(${props => props.src});
-
+    background-size: cover;
+    
     
 `
