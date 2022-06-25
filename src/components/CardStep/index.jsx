@@ -7,6 +7,7 @@ import { SelectPerson } from '../SelectPersons'
 import srcBackground from './back.jpg'
 import { TourStep } from '../TourStep'
 import { CardContainer } from './styled'
+import { CongratulationPay } from '../CongratulationPay'
 
 export const CardStep = () => {
     const dispatch = useDispatch()
@@ -22,6 +23,7 @@ export const CardStep = () => {
             {state.selectTour ? <TourStep /> : null}
             {state.selectPersons ? <SelectPerson /> : null}
             {state.finalTraject ? <FinalTraject /> : null}
+            {state.congratulationPay ? <CongratulationPay /> : null}
         </CardContainer>
     )
 }

@@ -6,6 +6,7 @@ const initialState = {
         selectTour: false,
         selectPersons: false,
         finalTraject: false,
+        congratulationPay: false,
         Persons: [],
         TourSelected: ""
     }
@@ -31,6 +32,10 @@ const TourSlice = createSlice({
         toggleFinalTraject: (state) => {
             const FState = { ...initialState.state, finalTraject: true }
             state.state = FState
+        },
+        toggleCongratulationPay: (state) => {
+            const PayState = { ...initialState.state, congratulationPay: true }
+            state.state = PayState
         },
         addNewPerson: (state, action) => {
 
@@ -61,5 +66,6 @@ export const {
     toggleFinalTraject,
     addNewPerson,
     dellPerson,
-    changeTour
+    changeTour,
+    toggleCongratulationPay
 } = TourSlice.actions

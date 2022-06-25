@@ -1,10 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { toggleCongratulationPay } from '../../storeRedux/slices/TourReducer'
 import { H1, ContainerInitialStep as Container } from '../InitialStep/styled'
 import { BtnCancel } from '../styleComponentsRecurrents'
 import { BtnConfirmTotal, Li, TitleSecondary, TotalToPay, Ul } from './styled'
 
 
 export const FinalTraject = () => {
+    const dispatch = useDispatch()
+    const NextStep = () => {
+        dispatch(toggleCongratulationPay())
+    }
+
+
     return (
         <Container>
             <H1>Confirme compra😀!</H1>
@@ -28,7 +36,9 @@ export const FinalTraject = () => {
                 <BtnCancel>
                     Cancelar
                 </BtnCancel>
-                <BtnConfirmTotal>
+                <BtnConfirmTotal
+                    onClick={NextStep}
+                >
                     Pagar
                 </BtnConfirmTotal>
             </div>
