@@ -46,6 +46,9 @@ const TourSlice = createSlice({
             })
             state.state.Persons = newStateFilter
 
+        },
+        changeTour: (state, actions) => {
+            state.state.TourSelected = actions.payload
         }
     }
 })
@@ -57,5 +60,6 @@ export const {
     toggleSelectPersons,
     toggleFinalTraject,
     addNewPerson,
-    dellPerson
+    dellPerson,
+    changeTour
 } = TourSlice.actions

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addNewPerson, dellPerson } from '../../storeRedux/slices/TourReducer'
+import { addNewPerson, dellPerson, toggleFinalTraject } from '../../storeRedux/slices/TourReducer'
 import { ContainerInitialStep as Container, H1 } from '../InitialStep/styled'
-import { BtnSubmit, FormAdd, Input, ListContainer, ListItem, PText, PTextWhite } from './styled'
+import { BtnCancel } from '../styleComponentsRecurrents'
+import { BtnContinue, BtnDelete, BtnSubmit, FormAdd, Input, ListContainer, ListItem, PText, PTextWhite } from './styled'
 export const SelectPerson = () => {
     const [value, setValue] = useState("")
 
@@ -16,11 +17,14 @@ export const SelectPerson = () => {
     const ReturnPersons = list.map(item => {
         return <ListItem
             key={item}
-        >{item}
-            <button
+        ><PText>
+                {item}
+            </PText>
+            <BtnDelete
+
                 value={item}
                 onClick={() => dellPersonFunction(item)}
-                type='button'>X</button>
+                type='button'>X</BtnDelete>
         </ListItem>
     })
     const addPerson = (event) => {
@@ -33,6 +37,9 @@ export const SelectPerson = () => {
     }
     const handleOnChangeValue = (event) => {
         setValue(event.target.value)
+    }
+    const NextStep = () => {
+        dispatch(toggleFinalTraject())
     }
     return (
         <Container>
@@ -53,6 +60,7 @@ export const SelectPerson = () => {
                 <PTextWhite>
                     Ingresar persona:
                 </PTextWhite>
+
                 <Input
                     value={value}
                     onChange={handleOnChangeValue}
@@ -62,8 +70,14 @@ export const SelectPerson = () => {
 
                     type="submit"
                 >Agregar</BtnSubmit>
-            </FormAdd>
 
+            </FormAdd>
+            <BtnCancel>Cancelar</BtnCancel>
+            <BtnContinue
+                onClick={NextStep}
+            >
+                Continuar
+            </BtnContinue>
         </Container>
     )
 }

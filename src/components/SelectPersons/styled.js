@@ -25,12 +25,25 @@ export const ListItem = styled.li`
     margin: 0;
     padding: 0;
     list-style: none;
+
+    text-align: start;
+
+    display: flex;
+    
+    margin: 10px 0;
+
+    
 `
 
 
 export const FormAdd = styled.form`
     width: 80%;
     height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
 `
 export const PTextWhite = styled.p`
     width: 100%;
@@ -49,10 +62,7 @@ export const Input = styled.input`
     color: white;
     background: rgb(204,153,255,0.6);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    margin: auto auto 0 0;
 `
 
 export const BtnSubmit = styled.button`
@@ -63,7 +73,27 @@ export const BtnSubmit = styled.button`
     color: white;
     background: rgb(51,153,255,0.6);
 
-    font-size: 2rem;
+    font-size: 1.2rem;
 
-    margin: 10px;
+    margin: 10px auto 10px 0;
+
+`
+
+export const BtnDelete = styled.button`
+    width: auto;
+    height: auto;
+
+    background: red;
+    color: white;
+    margin: 0 auto 0 0;
+`
+
+export const BtnContinue = styled.button`
+    width: auto;
+    height: auto;
+    min-height: 30px;
+    background: #8300FF;
+    color: #FFF;
+    font-size: 1.6rem;
+    margin: 20px 20px 20px auto;
 `
