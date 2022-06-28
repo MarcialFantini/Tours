@@ -20,15 +20,16 @@ export const H1 = styled.h1`
     font: bold;
     background: pink;
     padding: 10px;
-
+    font-size: 2rem;
     border-radius: 10px;
+    width: 80%;
 `
 
 export const P = styled.p`
     text-align: justify;
     display: block;
 
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     width: 70%;
 `
 

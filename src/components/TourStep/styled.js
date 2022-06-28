@@ -27,12 +27,15 @@ export const Ul = styled.ul`
 
 export const BtnNext = styled.button`
     cursor: pointer;
-    width: auto;
-    min-width: 40px;
+   width: auto;
     height: auto;
     min-height: 30px;
-    padding: 0 10px 0 10px;
-    margin: 20px 20px 20px auto;
+    color: white;
+    background: blue;
+    padding: 10px;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    margin: 20px auto 20px 0 ;
 
 
 `

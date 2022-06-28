@@ -8,6 +8,10 @@ export const TotalToPay = styled.div`
 
 export const TitleSecondary = styled.h2`
     text-align: center;
+    font-size: 2rem;
+    /* subrayado */
+    text-decoration: ${props => props.subrayado ? "underline" : null};
+
 `
 
 export const Ul = styled.ul`
@@ -22,6 +26,7 @@ export const Li = styled.li`
     min-height: 30px;
     columns: black;
     text-align: start;
+    font-size: 1.6rem;
 `
 
 export const BtnConfirmTotal = styled.button`

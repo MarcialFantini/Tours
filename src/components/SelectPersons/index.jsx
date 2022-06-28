@@ -72,16 +72,18 @@ export const SelectPerson = () => {
                 >Agregar</BtnSubmit>
 
             </FormAdd>
-            <BtnCancel
-                onClick={() => {
-                    dispatch(removeAll())
-                }}
-            >Cancelar</BtnCancel>
-            <BtnContinue
-                onClick={NextStep}
-            >
-                Continuar
-            </BtnContinue>
+            <div>
+                <BtnCancel
+                    onClick={() => {
+                        dispatch(removeAll())
+                    }}
+                >Cancelar</BtnCancel>
+                <BtnContinue
+                    onClick={NextStep}
+                >
+                    Continuar
+                </BtnContinue>
+            </div>
         </Container>
     )
 }

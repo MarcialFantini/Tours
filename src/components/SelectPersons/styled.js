@@ -4,7 +4,7 @@ export const PText = styled.p`
     width: 80%;
     height: auto;
 
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 
     text-align: start;
 
@@ -25,7 +25,7 @@ export const ListItem = styled.li`
     margin: 0;
     padding: 0;
     list-style: none;
-
+    font-size: 1.6rem;
     text-align: start;
 
     display: flex;
@@ -39,7 +39,7 @@ export const ListItem = styled.li`
 export const FormAdd = styled.form`
     width: 80%;
     height: auto;
-
+    
     display: flex;
     align-items: center;
     justify-content: start;
@@ -48,19 +48,20 @@ export const FormAdd = styled.form`
 export const PTextWhite = styled.p`
     width: 100%;
     height: auto;
-
+    font-size: 1.6rem;
     color: white;
     text-align: start;
     margin: 20px auto 10px 0;
 
 `
 export const Input = styled.input`
-    width: auto;
+    width: 80%;
     min-width: 50px;
     min-height: 30px;
 
+    font-size: 1.6rem;
     color: white;
-    background: rgb(204,153,255,0.6);
+    background: rgb(204,153,255,0.2);
 
     margin: auto auto 0 0;
 `
@@ -69,13 +70,14 @@ export const BtnSubmit = styled.button`
     width: auto;
     height: auto;
     min-height: 30px;
-
     color: white;
     background: rgb(51,153,255,0.6);
+    padding: 10px;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    margin: 20px auto 20px 0 ;
 
-    font-size: 1.2rem;
-
-    margin: 10px auto 10px 0;
+    
 
 `
 
@@ -92,8 +94,10 @@ export const BtnContinue = styled.button`
     width: auto;
     height: auto;
     min-height: 30px;
-    background: #8300FF;
-    color: #FFF;
+    color: white;
+    background: violet;
+    padding: 10px;
     font-size: 1.6rem;
-    margin: 20px 20px 20px auto;
+    border-radius: 10px;
+    margin: 20px auto 20px 0 ;
 `

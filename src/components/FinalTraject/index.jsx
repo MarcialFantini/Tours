@@ -33,7 +33,9 @@ export const FinalTraject = () => {
         <Container>
             <H1>Confirme compra😀!</H1>
             <TotalToPay>
-                <TitleSecondary>
+                <TitleSecondary
+                    subrayado={true}
+                >
                     Lista a pagar:
                 </TitleSecondary>
                 <Ul>
@@ -41,11 +43,11 @@ export const FinalTraject = () => {
                         listPricePersons
                     }
                 </Ul>
-                <TitleSecondary>
-                    Confirme cuenta 💲💲
+                <TitleSecondary subrayado={true}>
+                    Confirme cuenta:
                 </TitleSecondary>
                 <TitleSecondary>
-                    💲{totalPrice}
+                    Total a pagar💲{totalPrice}
                 </TitleSecondary>
             </TotalToPay>
             <div>

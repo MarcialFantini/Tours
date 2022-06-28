@@ -51,16 +51,18 @@ export const TourStep = () => {
                     Mexico
                 </option>
             </Select>
-            <BtnCancel
-                onClick={() => {
-                    dispatch(removeAll())
-                }}
-            >Cancelar</BtnCancel>
-            <BtnNext
-                onClick={Next}
-            >
-                Confirmar
-            </BtnNext>
+            <div>
+                <BtnCancel
+                    onClick={() => {
+                        dispatch(removeAll())
+                    }}
+                >Cancelar</BtnCancel>
+                <BtnNext
+                    onClick={Next}
+                >
+                    Confirmar
+                </BtnNext>
+            </div>
 
         </Container>
     )
