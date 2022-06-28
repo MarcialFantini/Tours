@@ -18,7 +18,7 @@ export const InitialStep = () => {
                 Aquí podrás conseguir viajes para tus
                 vacaciones este año.
             </P>
-            <BtnCancel>Cancelar</BtnCancel>
+
             <BtnNext
                 onClick={NextStep}
             >Comenzar</BtnNext>

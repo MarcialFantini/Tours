@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addNewPerson, dellPerson, toggleFinalTraject } from '../../storeRedux/slices/TourReducer'
+import { addNewPerson, dellPerson, removeAll, toggleFinalTraject } from '../../storeRedux/slices/TourReducer'
 import { ContainerInitialStep as Container, H1 } from '../InitialStep/styled'
 import { BtnCancel } from '../styleComponentsRecurrents'
 import { BtnContinue, BtnDelete, BtnSubmit, FormAdd, Input, ListContainer, ListItem, PText, PTextWhite } from './styled'
@@ -72,7 +72,11 @@ export const SelectPerson = () => {
                 >Agregar</BtnSubmit>
 
             </FormAdd>
-            <BtnCancel>Cancelar</BtnCancel>
+            <BtnCancel
+                onClick={() => {
+                    dispatch(removeAll())
+                }}
+            >Cancelar</BtnCancel>
             <BtnContinue
                 onClick={NextStep}
             >

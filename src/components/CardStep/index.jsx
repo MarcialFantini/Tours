@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleInitial } from '../../storeRedux/slices/TourReducer'
+import { initialState, toggleInitial } from '../../storeRedux/slices/TourReducer'
 import { FinalTraject } from '../FinalTraject'
 import { InitialStep } from '../InitialStep'
 import { SelectPerson } from '../SelectPersons'
@@ -11,12 +11,14 @@ import { CongratulationPay } from '../CongratulationPay'
 
 export const CardStep = () => {
     const dispatch = useDispatch()
-    const state = useSelector(state => state.Tour.state)
-    console.log(state)
-
+    const list = useSelector(state => state.Tour.state)
+    const [state, setState] = useState(initialState)
     useEffect(() => {
         dispatch(toggleInitial())
     }, [dispatch])
+    useEffect(() => {
+        setState(list)
+    }, [list])
     return (
         <CardContainer src={srcBackground} >
             {state.initial ? <InitialStep /> : null}

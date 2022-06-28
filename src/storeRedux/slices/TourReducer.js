@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialState = {
+export const initialState = {
     state: {
         initial: false,
         selectTour: false,
@@ -17,24 +17,68 @@ const TourSlice = createSlice({
     initialState,
     reducers: {
         toggleInitial: (state) => {
-            const newState = { ...initialState.state, initial: true }
+            const newState = {
+
+                selectTour: false,
+                selectPersons: false,
+                finalTraject: false,
+                congratulationPay: false,
+                Persons: [],
+                TourSelected: "",
+                initial: true
+            }
 
             state.state = newState
         },
         toggleSelectTour: (state) => {
-            const TState = { ...initialState.state, selectTour: true }
+            const TState = {
+                initial: false,
+
+                selectPersons: false,
+                finalTraject: false,
+                congratulationPay: false,
+                Persons: [],
+                TourSelected: "",
+                selectTour: true
+            }
             state.state = TState
         },
         toggleSelectPersons: (state) => {
-            const PState = { ...initialState.state, selectPersons: true }
+            const PState = {
+                initial: false,
+                selectTour: false,
+
+                finalTraject: false,
+                congratulationPay: false,
+                Persons: [...state.state.Persons],
+                TourSelected: state.state.TourSelected,
+                selectPersons: true
+            }
             state.state = PState
         },
         toggleFinalTraject: (state) => {
-            const FState = { ...initialState.state, finalTraject: true }
+            const FState = {
+                initial: false,
+                selectTour: false,
+                selectPersons: false,
+                congratulationPay: false,
+                Persons: [...state.state.Persons],
+                TourSelected: state.state.TourSelected,
+                finalTraject: true
+            }
             state.state = FState
         },
         toggleCongratulationPay: (state) => {
-            const PayState = { ...initialState.state, congratulationPay: true }
+            const PayState = {
+                initial: false,
+                selectTour: false,
+                selectPersons: false,
+                congratulationPay: false,
+                Persons: [...state.state.Persons],
+                TourSelected: state.state.TourSelected,
+                finalTraject: false,
+                congratulationPay: true
+            }
             state.state = PayState
         },
         addNewPerson: (state, action) => {
@@ -54,6 +98,10 @@ const TourSlice = createSlice({
         },
         changeTour: (state, actions) => {
             state.state.TourSelected = actions.payload
+        },
+        removeAll: (state) => {
+            state.state = { ...initialState.state, initial: true }
+
         }
     }
 })
@@ -67,5 +115,6 @@ export const {
     addNewPerson,
     dellPerson,
     changeTour,
-    toggleCongratulationPay
+    toggleCongratulationPay,
+    removeAll
 } = TourSlice.actions

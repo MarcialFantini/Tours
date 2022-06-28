@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { changeTour, toggleSelectPersons } from '../../storeRedux/slices/TourReducer'
+import { changeTour, removeAll, toggleSelectPersons } from '../../storeRedux/slices/TourReducer'
 import { ContainerInitialStep as Container, H1 } from '../InitialStep/styled'
 import { BtnCancel } from '../styleComponentsRecurrents'
 import { PText, Select, Ul, BtnNext } from './styled'
@@ -8,7 +8,9 @@ import { PText, Select, Ul, BtnNext } from './styled'
 export const TourStep = () => {
     const dispatch = useDispatch()
 
+
     const Next = () => {
+
         dispatch(toggleSelectPersons())
     }
     const HandleEventDispatch = (event) => {
@@ -16,7 +18,9 @@ export const TourStep = () => {
         dispatch(changeTour(event.target.value))
 
     }
-
+    useEffect(() => {
+        dispatch(changeTour('Brasil-5000'))
+    }, [])
     return (
         <Container>
             <H1>
@@ -35,19 +39,23 @@ export const TourStep = () => {
 
             <Select onChange={HandleEventDispatch} >
                 <option
-                    value="Brasil">
+                    value="Brasil-5000">
                     Brasil
                 </option>
                 <option
-                    value="Cuba">
+                    value="Cuba-3000">
                     Cuba
                 </option>
                 <option
-                    value="Mexico">
+                    value="Mexico-4000">
                     Mexico
                 </option>
             </Select>
-            <BtnCancel>Cancelar</BtnCancel>
+            <BtnCancel
+                onClick={() => {
+                    dispatch(removeAll())
+                }}
+            >Cancelar</BtnCancel>
             <BtnNext
                 onClick={Next}
             >

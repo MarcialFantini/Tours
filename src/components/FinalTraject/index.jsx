@@ -1,17 +1,33 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { toggleCongratulationPay } from '../../storeRedux/slices/TourReducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeAll, toggleCongratulationPay } from '../../storeRedux/slices/TourReducer'
 import { H1, ContainerInitialStep as Container } from '../InitialStep/styled'
 import { BtnCancel } from '../styleComponentsRecurrents'
 import { BtnConfirmTotal, Li, TitleSecondary, TotalToPay, Ul } from './styled'
 
 
 export const FinalTraject = () => {
+
     const dispatch = useDispatch()
     const NextStep = () => {
         dispatch(toggleCongratulationPay())
     }
+    const list = useSelector(state => {
+        console.log(state.Tour.state)
+        return state.Tour.state
+    })
+    const listPricePersons = list.Persons.map(item => {
+        const priceAndPlace = list.TourSelected.split('-')
+        console.log(item)
+        return (<Li
+            key={item}
+        >
+            {"-" + item + ": $" + priceAndPlace[1] + " en " + priceAndPlace[0]}
+        </Li>)
+    })
 
+    const splitPrice = list.TourSelected.split('-')
+    const totalPrice = list.Persons.length * splitPrice[1]
 
     return (
         <Container>
@@ -21,19 +37,23 @@ export const FinalTraject = () => {
                     Lista a pagar:
                 </TitleSecondary>
                 <Ul>
-                    <Li>
-                        Primero:1000
-                    </Li>
+                    {
+                        listPricePersons
+                    }
                 </Ul>
                 <TitleSecondary>
                     Confirme cuenta 💲💲
                 </TitleSecondary>
                 <TitleSecondary>
-                    💲3000
+                    💲{totalPrice}
                 </TitleSecondary>
             </TotalToPay>
             <div>
-                <BtnCancel>
+                <BtnCancel
+                    onClick={() => {
+                        dispatch(removeAll())
+                    }}
+                >
                     Cancelar
                 </BtnCancel>
                 <BtnConfirmTotal
